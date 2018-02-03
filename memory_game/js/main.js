@@ -1,19 +1,36 @@
-var cards = ["queen", "queen", "king", "king"];
+var cards = [
+	{
+		rank: "queen",
+		suit: "hearts",
+		cardImage: "images/queen-of-hearts.png"
+	},
+	{
+		rank: "queen",
+		suit: "diamonds",
+		cardImage: "images/queen-of-diamonds.png"
+	},
+	{
+		rank: "king",
+		suit: "hearts",
+		cardImage: "images/king-of-hearts.png"
+	},
+	{
+		rank: "king",
+		suit: "diamonds",
+		cardImage: "images/king-of-diamonds.png"
+	}
+];
 
 var cardsInPlay = [];
 
 var checkForMatch = function(){
 	if (cardsInPlay[0] === cardsInPlay[1]){
-		result.textContent = "You found a match!";
-		score += 1;
-		document.getElementById("score").textContent = score;
+		console.log = alert("You found a match!");
 	} else {
-		result.textContent = "Sorry, try again.";
-		delayedFlipBack(); // this can be fixed- if you click on a non-match after having matched cards already on the board they all flip back
+		console.log = alert("Sorry, try again.");
 	}
-	cardsInPlay = [];
 };
-	
+
 var flipCard = function() {
 	var cardId = this.getAttribute("data-id");
 	var card = cards[cardId];
@@ -26,3 +43,15 @@ var flipCard = function() {
 	}
 };
 
+var createBoard = function(){
+	for (var i = 0; i < cards.length; i++) {
+		var cardElement = document.createElement("img");
+		cardElement.setAttribute("src", "images/back.png");
+		cardElement.setAttribute("data-id", i)
+		cardElement.addEventListener("click", flipCard);
+		var board = document.getElementById("game-board");
+		board.appendChild(cardElement);
+	}
+};
+
+createBoard();
