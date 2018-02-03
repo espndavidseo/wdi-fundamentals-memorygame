@@ -34,6 +34,7 @@ letter-spacing: 1px;
 font-weight: 600;
 font-size: 18px;
 margin: 0 20px 0 20px;
+text-decoration: none;
 }
 
 h2 {
@@ -106,14 +107,3 @@ font-size: 0;
 a:hover {
 border-color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
